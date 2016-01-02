@@ -7,7 +7,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 group :development, :test do
-  gem 'byebug'
+  # gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
@@ -18,6 +18,7 @@ gem 'high_voltage'
 gem 'pg'
 gem 'pundit'
 gem 'simple_form'
+gem 'active_model_serializers'
 group :development do
   gem 'better_errors'
   gem 'html2haml'
