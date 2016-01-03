@@ -14,7 +14,9 @@ class Api::V1::BaseController < ApplicationController
     unless authenticate_with_http_token do |token, options|
       email = options[:email].presence
       user = email && User.find_by(email: email)
-      user && secure_compare(user.authentication_token, token)
+      authenticated = user && secure_compare(user.authentication_token, token)
+      @current_user = user if authenticated
+      authenticated
     end
       head :unauthorized
     end
