@@ -33,6 +33,11 @@ class User < ActiveRecord::Base
     self.role ||= :user
   end
 
+  def refresh_token
+    generate_authentication_token
+    save
+  end
+
   def generate_authentication_token
     loop do
       self.authentication_token = SecureRandom.urlsafe_base64(48)
