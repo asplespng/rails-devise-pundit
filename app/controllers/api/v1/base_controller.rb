@@ -21,4 +21,7 @@ class Api::V1::BaseController < ApplicationController
       head :unauthorized
     end
   end
+  def default_serializer_options
+    {root: false}
+  end
 end

@@ -5,7 +5,7 @@ class Api::V1::SessionsController < Api::V1::BaseController
     authenticate_with_http_basic do |email, password|
       user = User.find_by email: email
       if user && user.valid_password?(password)
-        render json: {token: user.authentication_token}, status: 200 and return
+        render json: Api::V1::SessionSerializer.new(user).to_json and return
       else
         head :unauthorized and return
       end
